@@ -1,0 +1,113 @@
+/* Controles de semestre y botón */
+.controls { 
+    display: flex;
+    flex-direction: column; /* Colocar elementos en columna */
+    align-items: flex-start; /* Alinear a la izquierda */
+    margin-bottom: 20px; /* Espacio entre controles y tabla */
+}
+
+/* Etiqueta y Selector de Semestre */
+label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+select {
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    margin-bottom: 10px; /* Espacio entre el selector y el botón */
+}
+
+/* Botón de descarga en PDF */
+#download {
+    padding: 10px 15px;
+    background-color: #e74c3c; /* Rojo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+#download i {
+    font-size: 18px;
+}
+
+#download:hover {
+    background-color: #c0392b; /* Rojo más oscuro al hacer hover */
+}
+
+/* Tabla */
+table {
+    width: 90%; /* Mantener el 90% del ancho del contenedor */
+    border-collapse: collapse;
+    margin-top: 20px; /* Mantener espacio entre controles y tabla */
+    text-align: center;
+    table-layout: fixed; /* Ajustar el tamaño de las celdas */
+    font-size: 14px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    word-wrap: break-word; /* Forzar el ajuste del texto dentro de las celdas */
+}
+
+th {
+    background-color: #007BFF; /* Azul */
+    color: white;
+    font-size: 12px;
+}
+
+.course {
+    background-color: #e7f3fe; /* Azul claro */
+    color: #007BFF; /* Azul */
+    font-weight: bold;
+}
+
+/* Ajustar el botón verde para otros botones */
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #28a745; /* Verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #218838; /* Verde más oscuro al hacer hover */
+}
+
+/* Responsivo: Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    table, th, td {
+        font-size: 14px;
+    }
+
+    #download {
+        width: 100%;
+        justify-content: center;
+        padding: 12px;
+    }
+
+    select {
+        width: 100%;
+        margin: 10px 0;
+    }
+}

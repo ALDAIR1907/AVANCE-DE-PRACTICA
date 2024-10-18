@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil del Docente</title>
+    <link rel="stylesheet" href="General/informacion_docente/docente.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="photo">
+                <img src="../../assets/maximo.jpg" alt="Foto del docente">
+            </div>
+            <div class="info-header">
+                <h1 id="nombre-docente">Nombre del Docente</h1>
+                <p id="dni-docente">DNI: 00000000</p>
+            </div>
+            <div class="actions">
+                <button>Actualizar</button>
+                <button>Historial</button>
+                <button>Generar PDF</button>
+            </div>
+        </div>
+
+        <div class="section datos-personales">
+            <h2>1.- Datos Personales</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>Fecha de Nacimiento:</label>
+                    <p id="fecha-nacimiento"></p>
+                </div>
+                <div class="info-item">
+                    <label>Teléfonos Fijos:</label>
+                    <ul id="telefonos-fijos"></ul>
+                </div>
+                <div class="info-item">
+                    <label>Célulares:</label>
+                    <ul id="celulares"></ul>
+                </div>
+                <div class="info-item">
+                    <label>E-mails:</label>
+                    <ul id="emails"></ul>
+                </div>
+                <div class="info-item">
+                    <label>Estado Civil:</label>
+                    <p id="estado-civil"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section lugar-nacimiento">
+            <h2>2.- Lugar de Nacimiento</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <label>País:</label>
+                    <p id="pais"></p>
+                </div>
+                <div class="info-item">
+                    <label>Departamento:</label>
+                    <p id="departamento"></p>
+                </div>
+                <div class="info-item">
+                    <label>Provincia:</label>
+                    <p id="provincia"></p>
+                </div>
+                <div class="info-item">
+                    <label>Distrito:</label>
+                    <p id="distrito"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section domicilio">
+            <h2>3.- Domicilio</h2>
+            <div class="info-item">
+                <label>Dirección:</label>
+                <p id="direccion"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="General/informacion_docente/docente.js"></script>
+</body>
+</html>

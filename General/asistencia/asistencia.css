@@ -1,0 +1,98 @@
+
+.asistencia h2 {
+    font-size: 2.5em; /* Aumenta el tamaño del título */
+    margin-bottom: 30px; /* Aumenta el margen inferior */
+    color: #000000;
+    text-align: center;
+}
+
+.botones {
+    text-align: center;
+    margin-bottom: 30px; /* Aumenta el margen inferior */
+}
+
+button {
+    padding: 15px 30px; /* Aumenta el padding para que los botones sean más grandes */
+    margin: 0 15px; /* Aumenta el margen entre botones */
+    border: none;
+    background-color: #1d2fd3;
+    color: white;
+    border-radius: 8px; /* Aumenta el radio de las esquinas */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #dd1010;
+}
+
+/* Estilos para los títulos de los meses */
+.mes-titulo {
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    color: #1d2fd3; /* Color del texto */
+    padding: 15px; /* Aumenta el espaciado */
+    border: 2px solid #ddd; /* Aumenta el grosor del borde */
+    border-radius: 8px; /* Esquinas redondeadas */
+    background-color: #f9f9f9; /* Color de fondo */
+    margin-bottom: 15px; /* Aumenta el espacio entre el título y la tabla */
+    font-size: 1.5em; /* Aumenta el tamaño del texto del título */
+}
+
+.mes-titulo:hover {
+    background-color: #e0e0e0; /* Color de fondo al pasar el mouse */
+}
+
+/* Tabla de asistencia */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px; /* Aumenta el margen superior */
+}
+
+table th, table td {
+    padding: 15px; /* Aumenta el padding en las celdas */
+    text-align: left;
+    border-bottom: 2px solid #ddd; /* Aumenta el grosor de la línea de la tabla */
+}
+
+table th {
+    background-color: #1d2fd3;
+    color: white;
+    font-size: 1.2em; /* Aumenta el tamaño del texto en el encabezado */
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+table td {
+    color: #333;
+    font-size: 1.1em; /* Aumenta el tamaño del texto en las celdas */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    button {
+        margin-bottom: 10px;
+        padding: 10px 20px; /* Ajusta el padding para dispositivos pequeños */
+    }
+
+    .mes-titulo {
+        font-size: 1.2em; /* Ajusta el tamaño del texto del título */
+        padding: 10px; /* Ajusta el espaciado para dispositivos pequeños */
+    }
+
+    table th, table td {
+        padding: 10px; /* Ajusta el padding en las celdas para dispositivos pequeños */
+        font-size: 1em; /* Ajusta el tamaño del texto en las celdas */
+    }
+}

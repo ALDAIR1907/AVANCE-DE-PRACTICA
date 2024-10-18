@@ -1,0 +1,30 @@
+{ 
+    "nombre": "Obregón Ramos, Máximo",
+    "dni": "08161078",
+    "fecha_nacimiento": "16/02/1975",
+    "telefono_fijo": ["5316292", "5454654", "5310303"],
+    "celular": ["951622994", "999626562"],
+    "email": ["maximo@uni.edu", "maxobregon@gmail.com"],
+    "ruc": "",
+    "lib_militar": "",
+    "estado_civil": "Casado",
+    "fecha_matrimonio": "01/04/2005",
+    "grupo_sanguineo": "-",
+    "lugar_nacimiento": {
+        "pais": "Perú",
+        "departamento": "15 Lima",
+        "provincia": "01 Lima",
+        "distrito": "35 San Martín de Porres"
+    },
+    "domicilio": [
+        {
+            "pais": "Perú",
+            "departamento": "15 Lima",
+            "provincia": "01 Lima",
+            "distrito": "35 San Martín de Porres",
+            "tipo_via": "-",
+            "nombre_via": "Mz F",
+            "numero_inmueble": "F"
+        }
+    ]
+}
