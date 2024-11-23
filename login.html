@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNI | EARPFIM</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Estilos del encabezado superior */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #224fb1;
+            color: white;
+            padding: 15px 10px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header .text {
+            text-align: center;
+        }
+
+        .header .text h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .header .text p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Contenedor de texto adicional sobre el login */
+        .login-header {
+            margin-top: 120px;
+            text-align: center;
+            color: #333;
+            font-size: 1.2rem;
+        }
+
+        .login-header h2 {
+            margin: 0;
+            font-size: 1.6rem;
+            color: #224fb1;
+        }
+
+        /* Contenedor del login */
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin: 20px auto 0; /* Espaciado adicional */
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #224fb1;
+        }
+
+        .login-container label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .login-container button {
+            background-color: #224fb1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-container button:hover {
+            background-color: #224fb1;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+    </style>
+    <link rel="icon" type="image/x-icon" href="assets/UNI_ICO.ico">
+</head>
+<body>
+    <div class="header">
+        <div class="text">
+            <h1>UNIVERSIDAD NACIONAL DE INGENIERÍA</h1>
+            <p>FACULTAD DE INGENIERÍA MECÁNICA</p>
+        </div>
+    </div>
+
+    <div class="login-header">
+        <h2>INTRANET EARPFIM</h2>
+        <p>Sistema de Planificación de Recursos Académicos y Empresariales</p>
+    </div>
+
+    <!-- Contenedor de login -->
+    <div class="login-container">
+        <h2>Inicio de Sesión</h2>
+        <div id="error" class="error-message"></div>
+        <form id="loginForm">
+            <label for="username">Usuario:</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Datos de usuarios simulados
+        const validUsers = {
+            admin: "12345",
+            usuario: "abcde"
+        };
+
+        // Manejo del formulario de login
+        const loginForm = document.getElementById('loginForm');
+        const errorDiv = document.getElementById('error');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evitar envío por defecto
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (validUsers[username] && validUsers[username] === password) {
+                alert("¡Inicio de sesión exitoso!");
+                window.location.href = "index.html"; // Cambia a la página principal
+            } else {
+                errorDiv.textContent = "Usuario o contraseña incorrectos.";
+            }
+        });
+    </script>
+</body>
+</html>

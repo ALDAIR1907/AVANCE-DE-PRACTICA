@@ -1,80 +1,79 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const tablaAsistencia = document.getElementById('tablaAsistencia');
-    const mensaje = document.getElementById('mensaje');
-    const marcarEntradaBtn = document.getElementById('marcarEntrada');
-    const marcarSalidaBtn = document.getElementById('marcarSalida');
+// Variables para almacenar datos
+let studentAttendance = [];
+let teacherAttendance = [];
 
-    let asistencia = {
-        id: 1,
-        codDocente: 87546374,
-        fecha: obtenerFechaActual(),
-        horaEntrada: null,
-        horaSalida: null,
-        estado: "Pendiente"
-    };
+// Actualizar reloj
+function updateClock() {
+    const now = new Date();
+    document.getElementById("clock").innerText = now.toLocaleTimeString();
+}
 
-    // Función para obtener la fecha actual en formato 'yyyy-mm-dd'
-    function obtenerFechaActual() {
-        const hoy = new Date();
-        return hoy.toISOString().split('T')[0];
-    }
+// Validar horarios para entrada o salida
+function validateTime(type, role) {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
 
-    // Función para obtener la hora actual en formato 'HH:mm:ss'
-    function obtenerHoraActual() {
-        const ahora = new Date();
-        return ahora.toTimeString().split(' ')[0];
-    }
-
-    // Función para marcar la hora de entrada
-    marcarEntradaBtn.addEventListener('click', function () {
-        if (!asistencia.horaEntrada) {
-            asistencia.horaEntrada = obtenerHoraActual();
-            asistencia.estado = "En Proceso";
-            mensaje.textContent = "Entrada marcada con éxito a las " + asistencia.horaEntrada;
-            actualizarTabla();
+    if (type === "entry") {
+        if ((hours === 7 && minutes >= 45) || (hours === 8 && minutes <= 5)) {
+            return { status: "Puntual", message: `${role} registrado a tiempo.` };
         } else {
-            mensaje.textContent = "Ya se ha marcado la entrada.";
+            return { status: "Tardanza", message: `${role} registrado con tardanza.` };
         }
-    });
-
-    // Función para marcar la hora de salida
-    marcarSalidaBtn.addEventListener('click', function () {
-        if (asistencia.horaEntrada && !asistencia.horaSalida) {
-            asistencia.horaSalida = obtenerHoraActual();
-            asistencia.estado = "Completado";
-            mensaje.textContent = "Salida marcada con éxito a las " + asistencia.horaSalida;
-            actualizarTabla();
-        } else if (!asistencia.horaEntrada) {
-            mensaje.textContent = "Primero debe marcar la entrada.";
+    } else if (type === "exit") {
+        if (hours >= 14 && hours < 15) {
+            return { status: "Puntual", message: `${role} salida registrada correctamente.` };
         } else {
-            mensaje.textContent = "Ya se ha marcado la salida.";
+            return { status: "Inválido", message: `${role} hora de salida no válida.` };
         }
-    });
-
-    // Función para actualizar la tabla de asistencia
-    function actualizarTabla() {
-        tablaAsistencia.innerHTML = `
-            <tr>
-                <td>${asistencia.id}</td>
-                <td>${asistencia.codDocente}</td>
-                <td>${asistencia.fecha}</td>
-                <td>${asistencia.horaEntrada ? asistencia.horaEntrada : 'No marcada'}</td>
-                <td>${asistencia.horaSalida ? asistencia.horaSalida : 'No marcada'}</td>
-                <td>${asistencia.estado}</td>
-            </tr>
-        `;
-    }
-
-    // Inicializa la tabla
-    actualizarTabla();
-});
-
-function toggleTable(mes) {
-    const table = document.getElementById(mes);
-    // Cambia el estilo de display de la tabla
-    if (table.style.display === 'none' || table.style.display === '') {
-        table.style.display = 'table'; // Muestra la tabla
-    } else {
-        table.style.display = 'none'; // Oculta la tabla
     }
 }
+
+// Registrar asistencia
+function registerAttendance(type, role) {
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+    const validation = validateTime(type, role);
+
+    const attendanceList = role === "Docente" ? teacherAttendance : studentAttendance;
+
+    if (validation.status !== "Inválido") {
+        attendanceList.push({
+            type: type === "entry" ? "Entrada" : "Salida",
+            time: time,
+            status: validation.status,
+        });
+        document.getElementById(role === "Docente" ? "teacher-status" : "status").innerText =
+            validation.message;
+        updateAttendanceLog(role);
+    } else {
+        document.getElementById(role === "Docente" ? "teacher-status" : "status").innerText =
+            validation.message;
+    }
+}
+
+// Mostrar historial de asistencia
+function updateAttendanceLog(role) {
+    const logElement = role === "Docente" ? "teacher-attendance-log" : "attendance-record";
+    const attendanceList = role === "Docente" ? teacherAttendance : studentAttendance;
+
+    document.getElementById(logElement).innerText = JSON.stringify(attendanceList, null, 2);
+}
+
+// Asignar eventos a botones
+document.getElementById("markAttendanceBtn").addEventListener("click", () => {
+    registerAttendance("entry", "Alumno");
+});
+
+document.getElementById("teacher-entry").addEventListener("click", () => {
+    registerAttendance("entry", "Docente");
+});
+
+document.getElementById("teacher-exit").addEventListener("click", () => {
+    registerAttendance("exit", "Docente");
+});
+
+// Actualizar reloj cada segundo
+setInterval(updateClock, 1000);
+updateClock();
+ 

@@ -7,79 +7,121 @@
     <link rel="stylesheet" href="General/informacion_docente/docente.css">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <div class="photo">
-                <img src="../../assets/maximo.jpg" alt="Foto del docente">
-            </div>
-            <div class="info-header">
-                <h1 id="nombre-docente">Nombre del Docente</h1>
-                <p id="dni-docente">DNI: 00000000</p>
-            </div>
-            <div class="actions">
-                <button>Actualizar</button>
-                <button>Historial</button>
-                <button>Generar PDF</button>
-            </div>
+    <div class="docente-container">
+        <!-- Encabezado -->
+        <div class="docente-header">
+          <div class="docente-foto">
+            <img src="../../assets/maximo.jpg" alt="Foto del Docente">
+          </div>
+          <div class="docente-info-basica">
+            <h1>Máximo Obregón Ramos</h1>
+            <p>DNI: <strong>08161078</strong></p>
+          </div>
+        </div>
+      
+        <!-- Primera Fila: Acciones -->
+        <div class="docente-acciones">
+          <button class="btn btn-actualizar">Actualizar</button>
+          <button class="btn btn-historial">Historial</button>
+          <button class="btn btn-pdf">Generar PDF</button>
+        </div>
+      
+        <!-- Segunda Fila: Datos -->
+        <div class="docente-datos-container">
+          <div class="docente-dato">
+            <h2>Sexo</h2>
+            <p>Masculino</p>
+          </div>
+          <div class="docente-dato">
+            <h2>Fecha de Nacimiento</h2>
+            <p>16/02/1975</p>
+          </div>
+          <div class="docente-dato">
+            <h2>Estado Civil</h2>
+            <p>Casado</p>
+          </div>
+          <div class="docente-dato">
+            <h2>Fecha de Matrimonio</h2>
+            <p>01/04/2005</p>
+          </div>
+          <div class="docente-dato">
+            <h2>Teléfono Fijo</h2>
+            <p>5316292 | 5456454 | 5310303</p>
+          </div>
+          <div class="docente-dato">
+            <h2>Celular</h2>
+            <p>951629294 | 999626562</p>
+          </div>
+        </div>
+      
+        <!-- Tercera Fila: Lugar de Nacimiento -->
+        <div class="docente-lugar">
+          <h2>Lugar de Nacimiento</h2>
+          <div class="docente-datos">
+            <p><strong>País:</strong> Perú</p>
+            <p><strong>Provincia:</strong> 01 Lima</p>
+            <p><strong>Departamento:</strong> 15 Lima</p>
+            <p><strong>Distrito:</strong> 35 San Martín de Porres</p>
+          </div>
+        </div>
+      
+        <!-- Cuarta Fila: Domicilio -->
+        <div class="docente-domicilio">
+          <h2>Domicilio</h2>
+          <button id="agregar-domicilio-btn">Agregar Nuevo Domicilio</button>
+          <table class="docente-tabla">
+            <thead>
+              <tr>
+                <th>País</th>
+                <th>Departamento</th>
+                <th>Provincia</th>
+                <th>Distrito</th>
+                <th>Tipo de Vía</th>
+                <th>Nombre de la Vía</th>
+                <th>Número</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Perú</td>
+                <td>15 Lima</td>
+                <td>01 Lima</td>
+                <td>35 San Martín de Porres</td>
+                <td>-</td>
+                <td>-</td>
+                <td>Mz F</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="section datos-personales">
-            <h2>1.- Datos Personales</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <label>Fecha de Nacimiento:</label>
-                    <p id="fecha-nacimiento"></p>
-                </div>
-                <div class="info-item">
-                    <label>Teléfonos Fijos:</label>
-                    <ul id="telefonos-fijos"></ul>
-                </div>
-                <div class="info-item">
-                    <label>Célulares:</label>
-                    <ul id="celulares"></ul>
-                </div>
-                <div class="info-item">
-                    <label>E-mails:</label>
-                    <ul id="emails"></ul>
-                </div>
-                <div class="info-item">
-                    <label>Estado Civil:</label>
-                    <p id="estado-civil"></p>
-                </div>
-            </div>
+        <!-- Modal -->
+        <div id="modal-agregar-domicilio" class="modal">
+          <div class="modal-content">
+              <span class="close-btn">&times;</span>
+              <h3>Agregar Nuevo Domicilio</h3>
+              <form id="form-domicilio">
+                  <label for="pais">País:</label>
+                  <input type="text" id="pais" name="pais" required>
+                  <label for="departamento">Departamento:</label>
+                  <input type="text" id="departamento" name="departamento" required>
+                  <label for="provincia">Provincia:</label>
+                  <input type="text" id="provincia" name="provincia" required>
+                  <label for="distrito">Distrito:</label>
+                  <input type="text" id="distrito" name="distrito" required>
+                  <label for="tipo-via">Tipo de Vía:</label>
+                  <input type="text" id="tipo-via" name="tipo-via">
+                  <label for="nombre-via">Nombre de la Vía:</label>
+                  <input type="text" id="nombre-via" name="nombre-via">
+                  <label for="numero">Número:</label>
+                  <input type="text" id="numero" name="numero">
+                  <button type="submit">Guardar</button>
+              </form>
+          </div>
         </div>
 
-        <div class="section lugar-nacimiento">
-            <h2>2.- Lugar de Nacimiento</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <label>País:</label>
-                    <p id="pais"></p>
-                </div>
-                <div class="info-item">
-                    <label>Departamento:</label>
-                    <p id="departamento"></p>
-                </div>
-                <div class="info-item">
-                    <label>Provincia:</label>
-                    <p id="provincia"></p>
-                </div>
-                <div class="info-item">
-                    <label>Distrito:</label>
-                    <p id="distrito"></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="section domicilio">
-            <h2>3.- Domicilio</h2>
-            <div class="info-item">
-                <label>Dirección:</label>
-                <p id="direccion"></p>
-            </div>
-        </div>
-    </div>
-
+      </div>
+      
     <script src="General/informacion_docente/docente.js"></script>
 </body>
 </html>

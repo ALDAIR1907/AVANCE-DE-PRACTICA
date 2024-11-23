@@ -1,73 +1,264 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+/* Estilo general */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-.photo img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #007bff;
+h1, h2, h3 {
+  color: #2c3e50;
+  margin: 0;
 }
 
-.info-header {
-    flex-grow: 1;
-    margin-left: 20px;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.info-header h1 {
-    font-size: 24px;
-    color: #333;
+p {
+  margin: 5px 0;
 }
 
-.info-header p {
-    font-size: 18px;
-    color: #777;
+button {
+  cursor: pointer;
 }
 
-.actions {
-    display: flex;
-    gap: 10px;
+/* Contenedor principal */
+.docente-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.actions button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Encabezado */
+.docente-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
 }
 
-.actions button:hover {
-    background-color: #0056b3;
+.docente-foto img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
 }
 
-.section {
-    margin-bottom: 50px; /* Aumentado el espacio entre las secciones */
+.docente-info-basica {
+  display: flex;
+  flex-direction: column;
 }
 
-.section h2 {
-    font-size: 22px;
-    margin-bottom: 15px;
-    color: #333;
+.docente-info-basica h1 {
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 20px;
+.docente-info-basica p {
+  font-size: 16px;
+  color: #555;
 }
 
-.info-item {
-    background-color: #f9f9f9;
-    padding: 15px;
+/* Botones de acción */
+.docente-acciones {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-.info-item label {
-    font-weight: bold;
+button.btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #007bff;
+  transition: background-color 0.3s ease;
+}
+
+button.btn:hover {
+  background-color: #0056b3;
+}
+
+.btn-pdf {
+  background-color: #e74c3c;
+}
+
+.btn-pdf:hover {
+  background-color: #c0392b;
+}
+
+/* Datos */
+.docente-datos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.docente-dato {
+  flex: 1 1 calc(50% - 20px); /* Dos columnas */
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.docente-dato h2 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: #34495e;
+}
+
+/* Lugar de nacimiento */
+.docente-lugar {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.docente-lugar h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+/* Tabla de domicilio */
+.docente-domicilio {
+  margin-bottom: 20px;
+}
+
+.docente-domicilio h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.agregar-domicilio-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #007bff;
+  transition: background-color 0.3s ease;
+}
+
+
+.docente-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.docente-tabla th, .docente-tabla td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.docente-tabla th {
+  background: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.docente-tabla tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+.modal-content h3 {
+  margin-top: 0;
+  font-size: 20px;
+  text-align: center;
+  color: #2c3e50;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+/* Estilo del formulario */
+form label {
+  display: block;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background: #007bff;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background: #0056b3;
 }

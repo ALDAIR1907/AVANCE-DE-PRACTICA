@@ -1,98 +1,76 @@
-
-.asistencia h2 {
-    font-size: 2.5em; /* Aumenta el tamaño del título */
-    margin-bottom: 30px; /* Aumenta el margen inferior */
-    color: #000000;
-    text-align: center;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
 }
 
-.botones {
+.container {
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.attendance-section {
     text-align: center;
-    margin-bottom: 30px; /* Aumenta el margen inferior */
+    margin-bottom: 20px;
+}
+
+.attendance-section p {
+    margin-bottom: 10px;
 }
 
 button {
-    padding: 15px 30px; /* Aumenta el padding para que los botones sean más grandes */
-    margin: 0 15px; /* Aumenta el margen entre botones */
+    padding: 10px 20px;
+    margin: 5px;
     border: none;
-    background-color: #1d2fd3;
-    color: white;
-    border-radius: 8px; /* Aumenta el radio de las esquinas */
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #dd1010;
+button.orange {
+    background-color: #f39c12;
+    color: white;
 }
 
-/* Estilos para los títulos de los meses */
-.mes-titulo {
-    cursor: pointer; /* Cambia el cursor al pasar el mouse */
-    color: #1d2fd3; /* Color del texto */
-    padding: 15px; /* Aumenta el espaciado */
-    border: 2px solid #ddd; /* Aumenta el grosor del borde */
-    border-radius: 8px; /* Esquinas redondeadas */
-    background-color: #f9f9f9; /* Color de fondo */
-    margin-bottom: 15px; /* Aumenta el espacio entre el título y la tabla */
-    font-size: 1.5em; /* Aumenta el tamaño del texto del título */
+button.blue {
+    background-color: #3498db;
+    color: white;
 }
 
-.mes-titulo:hover {
-    background-color: #e0e0e0; /* Color de fondo al pasar el mouse */
+button.small {
+    background-color: #7f8c8d;
+    color: white;
+    font-size: 12px;
 }
 
-/* Tabla de asistencia */
-table {
+.attendance-table {
+    margin-top: 20px;
+}
+
+.attendance-table table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 30px; /* Aumenta el margen superior */
 }
 
-table th, table td {
-    padding: 15px; /* Aumenta el padding en las celdas */
-    text-align: left;
-    border-bottom: 2px solid #ddd; /* Aumenta el grosor de la línea de la tabla */
+.attendance-table th, .attendance-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
 }
 
-table th {
-    background-color: #1d2fd3;
+.attendance-table th {
+    background-color: #3498db;
     color: white;
-    font-size: 1.2em; /* Aumenta el tamaño del texto en el encabezado */
-}
-
-table tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-table tr:hover {
-    background-color: #f1f1f1;
-}
-
-table td {
-    color: #333;
-    font-size: 1.1em; /* Aumenta el tamaño del texto en las celdas */
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-        padding: 15px;
-    }
-
-    button {
-        margin-bottom: 10px;
-        padding: 10px 20px; /* Ajusta el padding para dispositivos pequeños */
-    }
-
-    .mes-titulo {
-        font-size: 1.2em; /* Ajusta el tamaño del texto del título */
-        padding: 10px; /* Ajusta el espaciado para dispositivos pequeños */
-    }
-
-    table th, table td {
-        padding: 10px; /* Ajusta el padding en las celdas para dispositivos pequeños */
-        font-size: 1em; /* Ajusta el tamaño del texto en las celdas */
-    }
 }
